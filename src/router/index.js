@@ -1,0 +1,32 @@
+import Vue from "vue";
+import VueRouter from "vue-router";
+
+import Ex01Page from "../components/Ex01Page.vue";
+import Ex02Page from "../components/Ex02Page.vue";
+import Ex03Page from "../components/Ex03Page.vue";
+import LoginPage from "../components/LoginPage.vue";
+
+Vue.use(VueRouter);
+
+const routeList = [
+  {
+    path: "/",
+    component: LoginPage,
+  },
+  {
+    path: "/ex01",
+    component: Ex01Page,
+  },
+  {
+    path: "/ex02",
+    component: Ex02Page,
+  },
+  {
+    path: "/ex03",
+    component: Ex03Page,
+  }
+];
+
+export const router = new VueRouter({
+  routes: routeList,
+});
