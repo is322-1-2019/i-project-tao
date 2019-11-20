@@ -17,13 +17,13 @@
       <b-button type="is-primary" @click="touch">Login</b-button>
       <b-button type="is-primary" @click="reset">Reset</b-button>
     </b-field>
-    <p>Dirty : {{ $v.form.$dirty }}</p>
+    <!-- <p>Dirty : {{ $v.form.$dirty }}</p>
     <p>Invalid : {{ $v.form.$invalid }}</p>
     <p>Require username: {{ $v.form.username.required }}</p>
     <p>User name minLength 8: {{ $v.form.username.minLength }}</p>
     <p>Require password: {{ $v.form.password.required }}</p>
     <p>Password minLength 4: {{ $v.form.password.minLength }}</p>
-    <p>Login result : {{ this.loginResult }}</p>
+    <p>Login result : {{ this.loginResult }}</p> -->
   </div>
 </template>
 <script>
@@ -68,7 +68,7 @@ export default {
       firebase.auth().signInWithEmailAndPassword(this.form.username, this.form.password)
         .then(data => {
           this.loginResult = data.user;
-          this.$store.dispatch("messages/addMessage", "Log in successful.");
+          
           this.$router.push("/ex03");
         })
         .catch(error => {
@@ -106,8 +106,7 @@ export default {
   },
 
   computed:{
-    ...mapGetters("messages", ["lastestMessage"])
-
+    
   }
 };
 </script>
