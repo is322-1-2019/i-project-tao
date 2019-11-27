@@ -1,11 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-// import {  store  } from "../store";
+import {  store  } from "../store";
 
 import Ex01Page from "../components/Ex01Page.vue";
 import Ex02Page from "../components/Ex02Page.vue";
-import Ex03Page from "../components/Ex03Page.vue";
+// import Ex03Page from "../components/Ex03Page.vue";
 import LoginPage from "../components/LoginPage.vue";
 
 import firebase from "firebase/app";
@@ -26,10 +26,10 @@ const routeList = [
     path: "/ex02",
     component: Ex02Page,
   },
-  {
-    path: "/ex03",
-    component: Ex03Page,
-  }
+  // {
+  //   path: "/ex03",
+  //   component: Ex03Page,
+  // }
 ];
 
 export const router = new VueRouter({
@@ -40,7 +40,7 @@ export const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (!user) {
-      // store.dispatch("messages/addMessage", "Please Log In.");
+       store.dispatch("messages/addMessage", "Please Log In.");
       next("/");
     }
     

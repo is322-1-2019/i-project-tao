@@ -14,8 +14,8 @@
       <b-message type="is-danger" has-icon v-if="!$v.form.password.minLength">รหัสผ่านต้องอยู่ระหว่าง 4-16 ตัวอักษร</b-message>
     </b-field>
     <b-field class="buttons" grouped>
-      <b-button type="is-primary" @click="touch">Login</b-button>
-      <b-button type="is-primary" @click="reset">Reset</b-button>
+      <b-button type="is-dark" @click="touch">Login</b-button>
+      <b-button type="is-dark" @click="reset">Reset</b-button>
     </b-field>
     <!-- <p>Dirty : {{ $v.form.$dirty }}</p>
     <p>Invalid : {{ $v.form.$invalid }}</p>
@@ -69,7 +69,7 @@ export default {
         .then(data => {
           this.loginResult = data.user;
           
-          this.$router.push("/ex03");
+          this.$router.push("/ex01");
         })
         .catch(error => {
           this.loginResult = error;
@@ -93,7 +93,7 @@ export default {
 
           });
 
-          this.$store.dispatch("messages/addMessage", "Log out successful.");
+          // this.$store.dispatch("messages/addMessage", "Log out successful.");
 
         })
 
@@ -110,3 +110,4 @@ export default {
   }
 };
 </script>
+
