@@ -5,6 +5,7 @@
         <b-navbar-item tag="router-link" :to="{ path: '/' }">Home</b-navbar-item>
         <b-navbar-item tag="router-link" :to="{ path: '/ex01' }">NewPlant</b-navbar-item>
         <b-navbar-item tag="router-link" :to="{ path: '/ex02' }">Forest</b-navbar-item>
+        <b-navbar-item tag="router-link" :to="{ path: '/ex03' }">Timer</b-navbar-item>
         <!-- <b-navbar-item tag="router-link" :to="{ path: '/ex03' }">Example 03</b-navbar-item> -->
       </template>
     </b-navbar>
