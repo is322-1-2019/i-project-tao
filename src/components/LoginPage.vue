@@ -1,6 +1,26 @@
 <template>
   <div class="card-content">
     <nav-bar></nav-bar>
+    <section class="hero is-medium is-dark is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Welcome to Plant Alarm
+      </h1>
+      <h2 class="subtitle">
+        Developed by Tonsak Maicharoen 5802615137
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+    <!-- <p class="title">
+      “Welcome to IS322 Project”
+    </p>
+    <p class="subtitle">
+      Tonsak Maicharoen 5802615137
+    </p> -->
     <b-field label="Username" expanded>
       <b-input v-model="form.username" maxlength="30" expanded></b-input>
     </b-field>
@@ -32,6 +52,7 @@ import NavBar from "./NavBar.vue";
 import { required, minLength , email} from "vuelidate/lib/validators";
 import firebase from "firebase/app";
 import "firebase/auth";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -68,7 +89,7 @@ export default {
       firebase.auth().signInWithEmailAndPassword(this.form.username, this.form.password)
         .then(data => {
           this.loginResult = data.user;
-          
+          this.$store.dispatch("messages/addMessage", "Log in successful.");
           this.$router.push("/ex01");
         })
         .catch(error => {
@@ -93,7 +114,7 @@ export default {
 
           });
 
-          // this.$store.dispatch("messages/addMessage", "Log out successful.");
+          this.$store.dispatch("messages/addMessage", "Log out successful.");
 
         })
 
@@ -106,7 +127,8 @@ export default {
   },
 
   computed:{
-    
+    ...mapGetters("messages", ["lastestMessage"])
+
   }
 };
 </script>

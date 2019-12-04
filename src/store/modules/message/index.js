@@ -3,13 +3,13 @@ import { actions } from "./actions";
 import { mutations } from "./mutations";
 
 const state = {
-  people: [],
+  messages: [],
   status: null,
 };
 
 const namespaced = true;
 
-export const people = {
+export const messages = {
   namespaced,
   state,
   getters,
