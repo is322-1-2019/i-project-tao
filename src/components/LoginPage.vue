@@ -5,7 +5,7 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        Welcome to Plant Alarm
+        Welcome to My Project
       </h1>
       <h2 class="subtitle">
         Developed by Tonsak Maicharoen 5802615137
@@ -14,13 +14,6 @@
   </div>
 </section>
 
-
-    <!-- <p class="title">
-      “Welcome to IS322 Project”
-    </p>
-    <p class="subtitle">
-      Tonsak Maicharoen 5802615137
-    </p> -->
     <b-field label="Username" expanded>
       <b-input v-model="form.username" maxlength="30" expanded></b-input>
     </b-field>
@@ -31,19 +24,19 @@
       <b-message type="is-danger" has-icon v-if="!$v.form.username.required">กรุณาใส่ชื่อผู้ใช้</b-message>
       <b-message type="is-danger" has-icon v-if="!$v.form.username.email">ชื่อผู้ใช้ต้องเป็น email</b-message>
       <b-message type="is-danger" has-icon v-if="!$v.form.password.required">กรุณาใส่รหัสผ่าน</b-message>
-      <b-message type="is-danger" has-icon v-if="!$v.form.password.minLength">รหัสผ่านต้องอยู่ระหว่าง 4-16 ตัวอักษร</b-message>
+      <b-message type="is-danger" has-icon v-if="!$v.form.password.minLength">รหัสผ่านต้องไม่ต่ำกว่า 8 ตัวอักษร</b-message>
     </b-field>
     <b-field class="buttons" grouped>
       <b-button type="is-dark" @click="touch">Login</b-button>
-      <b-button type="is-dark" @click="reset">Reset</b-button>
+      <!-- <b-button type="is-dark" @click="reset">Reset</b-button> -->
     </b-field>
-    <!-- <p>Dirty : {{ $v.form.$dirty }}</p>
+    <p>Dirty : {{ $v.form.$dirty }}</p>
     <p>Invalid : {{ $v.form.$invalid }}</p>
     <p>Require username: {{ $v.form.username.required }}</p>
-    <p>User name minLength 8: {{ $v.form.username.minLength }}</p>
+    <p>User name email: {{ $v.form.username.minLength }}</p>
     <p>Require password: {{ $v.form.password.required }}</p>
-    <p>Password minLength 4: {{ $v.form.password.minLength }}</p>
-    <p>Login result : {{ this.loginResult }}</p> -->
+    <p>Password minLength 8: {{ $v.form.password.minLength }}</p>
+    <p>Login result : {{ this.loginResult }}</p> 
   </div>
 </template>
 <script>
@@ -75,7 +68,7 @@ export default {
       },
       password: {
         required,
-        minLength: minLength(4)
+        minLength: minLength(8)
       }
     }
   },

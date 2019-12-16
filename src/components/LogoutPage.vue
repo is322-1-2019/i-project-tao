@@ -46,7 +46,8 @@ export default {
       firebase.auth().signOut()
         .then(data => {
           this.loginResult = data;
-          
+
+          this.$router.push("/");
           this.$buefy.dialog.alert({
             type: "is-primary",
             title: "Logout",
@@ -65,6 +66,8 @@ export default {
         }
 
       );
+
+      
     }
   },
 

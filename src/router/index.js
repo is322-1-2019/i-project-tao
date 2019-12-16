@@ -3,8 +3,9 @@ import VueRouter from "vue-router";
 
 import {  store  } from "../store";
 
-import Ex01Page from "../components/Ex01Page.vue";
-import Ex02Page from "../components/Ex02Page.vue";
+import LandingPage from "../components/LandingPage.vue";
+import Main1Page from "../components/Main1Page.vue";
+import Main2Page from "../components/Main2Page.vue";
 import LogoutPage from "../components/LogoutPage.vue";
 import LoginPage from "../components/LoginPage.vue";
 
@@ -16,15 +17,19 @@ Vue.use(VueRouter);
 const routeList = [
   {
     path: "/",
+    component: LandingPage,
+  },
+  {
+    path: "/login",
     component: LoginPage,
   },
   {
     path: "/ex01",
-    component: Ex01Page,
+    component: Main1Page,
   },
   {
     path: "/ex02",
-    component: Ex02Page,
+    component: Main2Page,
   },
   {
     path: "/logout",
@@ -41,7 +46,7 @@ router.beforeEach((to, from, next) => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (!user) {
        store.dispatch("messages/addMessage", "Please Log In.");
-      next("/");
+      next("/login");
     }
     
   });
