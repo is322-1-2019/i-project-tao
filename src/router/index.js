@@ -5,7 +5,7 @@ import {  store  } from "../store";
 
 import Ex01Page from "../components/Ex01Page.vue";
 import Ex02Page from "../components/Ex02Page.vue";
-import Ex03Page from "../components/Ex03Page.vue";
+import LogoutPage from "../components/LogoutPage.vue";
 import LoginPage from "../components/LoginPage.vue";
 
 import firebase from "firebase/app";
@@ -27,8 +27,8 @@ const routeList = [
     component: Ex02Page,
   },
   {
-    path: "/ex03",
-    component: Ex03Page,
+    path: "/logout",
+    component: LogoutPage,
   }
 ];
 
